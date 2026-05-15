@@ -12,14 +12,7 @@ const mockExamRoutes = require('./routes/mockExamRoutes');
 const previousPaperRoutes = require('./routes/previousPaperRoutes');
 
 // Middleware
-app.use(cors({
-    origin: [
-        'http://localhost:5173',
-        'http://127.0.0.1:5173',
-        process.env.FRONTEND_URL,  // Set this in Render env vars
-    ].filter(Boolean),
-    credentials: true,
-}));
+app.use(cors()); // Allow all origins for public access
 app.use(express.json());
 
 // Routes

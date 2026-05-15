@@ -10,6 +10,8 @@ const timetableRoutes = require('./routes/timetableRoutes');
 const questionRoutes = require('./routes/questionRoutes');
 const mockExamRoutes = require('./routes/mockExamRoutes');
 const previousPaperRoutes = require('./routes/previousPaperRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
+const path = require('path');
 
 // Middleware
 app.use(cors()); // Allow all origins for public access
@@ -25,6 +27,10 @@ app.use('/api/timetables', timetableRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/mock-exams', mockExamRoutes);
 app.use('/api/previous-papers', previousPaperRoutes);
+app.use('/api/uploads', uploadRoutes);
+
+// Static folder for uploads
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 app.get('/', (req, res) => {
     res.send('API is running...');

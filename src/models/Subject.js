@@ -13,7 +13,7 @@ const subjectSchema = new mongoose.Schema({
     department: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Department',
-        required: true,
+        required: false,
     },
     credits: {
         type: Number,

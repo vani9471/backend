@@ -11,11 +11,11 @@ const router = express.Router();
 
 router.get('/', getSubjects);
 
-router.post('/', protect, authorize('admin'), createSubject);
+router.post('/', protect, authorize('admin', 'teacher'), createSubject);
 
 router
     .route('/:id')
-    .put(protect, authorize('admin'), updateSubject)
-    .delete(protect, authorize('admin'), deleteSubject);
+    .put(protect, authorize('admin', 'teacher'), updateSubject)
+    .delete(protect, authorize('admin', 'teacher'), deleteSubject);
 
 module.exports = router;

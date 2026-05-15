@@ -10,9 +10,8 @@ const subjectSchema = new mongoose.Schema({
         required: [true, 'Subject code is required'],
         unique: true,
     },
-    department: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Department',
+    questionBankUrl: {
+        type: String,
         required: false,
     },
     credits: {
